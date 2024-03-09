@@ -1,3 +1,7 @@
+Examples were created using 'CascadeType.REMOVE' and 'CascadeType.PERSIST' to demonstrate the impact of the cascade type on entities.
+
+<br>
+  
 <h2>CascadeType.PERSIST</h2>
 
 I have created a new entity named "ProductDetail" with a OneToOne relationship with the "Product" entity. 
