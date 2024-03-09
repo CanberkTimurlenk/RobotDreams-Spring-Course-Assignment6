@@ -1,8 +1,8 @@
 <h2>CascadeType.PERSIST</h2>
 
-ProductDetail isimli yeni bir entity yi Product ile OneToOne ilişki içerisinde olacak şekilde oluşturdum.
+I have created a new entity named "ProductDetail" with a OneToOne relationship with the "Product" entity. 
 
-Product post isteği ile kaydedilirken, productDetail bilgisi de request body de sağlanacak ve bunu da cascade type sayesinde kaydetmiş olacağız.
+When saving a Product through a POST request, the ProductDetail information will also be provided in the request body. Since the Cascade type is set to persist, the ProductDetail entity will be saved to the database along with its one-to-one relation.
 
 ``Product.java``
 
