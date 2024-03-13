@@ -2,6 +2,7 @@ package com.robotdreams.assignment6.service.mapper;
 
 import com.robotdreams.assignment6.dto.ProductDetailRequestDto;
 import com.robotdreams.assignment6.dto.ProductRequestDto;
+import com.robotdreams.assignment6.dto.ProductResponseDto;
 import com.robotdreams.assignment6.entity.Product;
 import com.robotdreams.assignment6.entity.ProductDetail;
 import org.aspectj.lang.annotation.After;
@@ -12,6 +13,8 @@ public interface ProductMapper {
 
     @Mapping(target = "productDetail", source = "productDetail", qualifiedByName = "mapToProductDetail")
     Product mapToProduct(ProductRequestDto dto);
+
+    ProductResponseDto productToProductResponseDto(Product product);
 
     @Named("mapToProductDetail")
     default ProductDetail mapToProductDetail(ProductDetailRequestDto dto) {

@@ -6,7 +6,12 @@ import com.robotdreams.assignment6.entity.OrderProduct;
 import com.robotdreams.assignment6.entity.Product;
 import com.robotdreams.assignment6.repository.OrderRepository;
 import com.robotdreams.assignment6.service.mapper.OrderMapper;
+import com.robotdreams.assignment6.dto.OrderResponseDto;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 @Service
 public class OrderService {
@@ -43,8 +48,12 @@ public class OrderService {
                 && orderProduct.getId() > 0;
     }
 
-    public Iterable<Order> findAll() {
-        return orderRepository.findAll();
+    public Optional<List<OrderResponseDto>> findAll() {
+        var responseDtos = StreamSupport.stream(orderRepository.findAll().spliterator(), false)
+                .map(mapper::orderToOrderResponseDto)
+                .toList();
+
+        return Optional.of(responseDtos);
     }
 
     public void delete(long orderId) {
