@@ -22,7 +22,6 @@ public class OrderController {
     }
 
     @PostMapping
-    @ResponseBody
     public String create(@RequestBody OrderRequestDto orderRequestDto) {
         return orderService.save(orderRequestDto)
                 ? "Successfully Created!"
